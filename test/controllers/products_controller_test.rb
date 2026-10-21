@@ -75,4 +75,12 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to product_url(@product)
   end
+
+  test "should destroy product" do
+    assert_raises ActiveRecord::RecordNotDestroyed do
+      delete product_url(products(:two))
+    end
+
+    assert Product.exists?(products(:two).id)
+  end
 end
