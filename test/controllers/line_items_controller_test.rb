@@ -52,6 +52,6 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_select "h2", "Your Pragmatic Cart"
-    assert_select "li", "The Pragmatic Programmer"
+    assert_select "li", "1 \u00D7 The Pragmatic Programmer"
   end
 end
