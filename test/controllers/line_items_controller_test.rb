@@ -54,4 +54,10 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     assert_select "h2", "Your Pragmatic Cart"
     assert_select "li", "1 \u00D7 The Pragmatic Programmer"
   end
+
+  test "should update line_item" do
+    patch line_item_url(@line_item),
+      params: { line_item: { product_id: @line_item.product_id } }
+    assert_redirected_to line_item_url(@line_item)
+  end
 end
